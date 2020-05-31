@@ -1,0 +1,24 @@
+{
+  "name": "lamb-rest",
+  "version": "1.0.0",
+  "description": "AWS lambda rest api handler",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lambda",
+    "rest",
+    "api"
+  ],
+  "author": "nviethuan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/juanapplication/lamb-rest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juanapplication/lamb-rest/issues"
+  },
+  "homepage": "https://github.com/juanapplication/lamb-rest#readme"
+}
