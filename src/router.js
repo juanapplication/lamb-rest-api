@@ -7,6 +7,9 @@ class Router {
   }
 
   get routes() {
+    if (!Router.routes$) {
+      Router.routes$ = new Map();
+    }
     return Router.routes$;
   }
 
