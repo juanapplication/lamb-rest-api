@@ -5,7 +5,7 @@ export * from './src/application';
 export * from './src/router';
 
 export class LambRestAPI {
-  public static handler(options: {
+  public static handler(options?: {
     app?: Application,
   }):APIGatewayProxyResult;
 }

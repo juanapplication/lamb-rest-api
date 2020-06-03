@@ -6,7 +6,9 @@ class LambRestAPI {
     return async (event, context, callback) => {
       const app = options.application || new Application(event, context, callback);
       if (Router.routes.has(app.path())) {
-        const f = Router.routes.get(app.path()).shift();
+        const fs = Router.routes.get(app.path());
+        app.fs = [...fs];
+        const f = app.fs.shift();
         return await f(app);
       }
       return {

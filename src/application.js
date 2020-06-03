@@ -10,6 +10,8 @@ class Application {
     this.event = event;
     this.context = context;
     this.callback = callback;
+    this.statusCode = 200;
+    this.fs = [];
   }
 
   path() {
@@ -17,14 +19,27 @@ class Application {
   }
 
   async next(error) {
-    if (error) return this.callback(error);
-    const path = this.path();
-    const handers = Router.routes.get(path);
-    if (handers.length === 0) {
+    if(error) return this.callback(error);
+    if (!this.fs.length) {
       throw new Error('The stack handler is null.');
     }
-    const f = handers.shift();
+    const f = this.fs.shift();
     return await f(this);
+  }
+
+  json(data) {
+    const body = JSON.stringify(data, null, 2);
+    if(this.callback) {
+      this.callback(null, {
+        statusCode: this.statusCode,
+        body,
+      });
+    } else {
+      return {
+        statusCode: this.statusCode,
+        body,
+      }
+    }
   }
 }
 

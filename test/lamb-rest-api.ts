@@ -3,14 +3,16 @@ import { APIGatewayProxyEvent, Context } from 'aws-lambda';
 
 const routes: Router = new Router();
 
-routes.get('/webhook', async (app: Application) => {
-  return await app.next(new Error('test'));
+routes.get('/webhook', (app: Application) => {
   return {
     statusCode: 200,
-    body: 'ok'
+    body: ''
   }
-}, (app: Application) => {
-  console.log(app, 'app2')
+}, async (app: Application) => {
+  return {
+    statusCode: 200,
+    body: ''
+  }
 });
 
 // (async () => {
