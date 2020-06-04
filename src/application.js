@@ -2,7 +2,7 @@ const { Router } = require('./router');
 
 class Application {
   constructor(
-    event = {} ,
+    event = {},
     context = {},
     callback,
   ) {
@@ -19,9 +19,9 @@ class Application {
   }
 
   async next(error) {
-    if(error) return this.callback(error);
+    if (error) return this.callback(error);
     if (!this.fs.length) {
-      throw new Error('The stack handler is null.');
+      throw new Error('The stack handler is null');
     }
     const f = this.fs.shift();
     return await f(this);
@@ -29,17 +29,10 @@ class Application {
 
   json(data) {
     const body = JSON.stringify(data, null, 2);
-    if(this.callback) {
-      this.callback(null, {
-        statusCode: this.statusCode,
-        body,
-      });
-    } else {
-      return {
-        statusCode: this.statusCode,
-        body,
-      }
-    }
+    return this.callback(null, {
+      statusCode: this.statusCode,
+      body,
+    });
   }
 }
 

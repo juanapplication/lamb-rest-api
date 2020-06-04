@@ -1,4 +1,9 @@
 class Router {
+
+  constructor() {
+    this.path = '';
+  }
+
   static get routes() {
     if (!Router.routes$) {
       Router.routes$ = new Map();
@@ -11,17 +16,6 @@ class Router {
       Router.routes$ = new Map();
     }
     return Router.routes$;
-  }
-
-  get path() {
-    if (!this.p) {
-      this.p = '';
-    }
-    return this.p;
-  }
-
-  set path(p) {
-    this.p = p;
   }
 
   buildPath(method, resource) {
