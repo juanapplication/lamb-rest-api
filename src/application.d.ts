@@ -1,4 +1,5 @@
 import { APIGatewayProxyEvent, Context, Callback, APIGatewayProxyResult } from 'aws-lambda';
+import { ResultHandle } from './router';
 
 export declare abstract class Application {
   constructor(event: APIGatewayProxyEvent, context: Context, callback: Callback<APIGatewayProxyResult>);
@@ -6,7 +7,7 @@ export declare abstract class Application {
   public context: Context;
   public callback: Callback<APIGatewayProxyResult>;
   public path(): string;
-  public next(error?: Error): Promise<APIGatewayProxyResult> | Promise<Callback<APIGatewayProxyResult>> | Error;
+  public next(error?: Error): ResultHandle;
   public json(data: object): Callback<APIGatewayProxyResult>;
   /**
    * Custom your context in here
