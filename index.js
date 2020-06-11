@@ -6,7 +6,7 @@ class LambRestAPI {
   static handler(options = {}) {
     return async (event, context, callback) => {
       try {
-        const app = options.application || new Application(event, context, callback);
+        const app = new options.application(event, context, callback) || new Application(event, context, callback);
         if (Router.routes.has(app.path())) {
           const fs = Router.routes.get(app.path());
           app.fs = [...fs];

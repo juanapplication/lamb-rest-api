@@ -12,6 +12,7 @@ class Application {
     this.callback = callback;
     this.statusCode = 200;
     this.fs = [];
+    this.contextBuilder && this.contextBuilder();
   }
 
   path() {

@@ -47,3 +47,32 @@ import 'source-map-support/register';
 
 export const hello: APIGatewayProxyHandler = LambRestAPI.handler();
 ```
+
+## Custom Application
+
+- application-builder.ts
+```typescript
+import { Application } from 'lamb-rest-api';
+
+class MyApplication extends Application {
+  constructor(event, context, callback) {
+    super(event, context, callback);
+  }
+
+  public contextBuilder() {
+    // custom your data
+    const event$ = this.event;
+    const context$ = this.context;
+    // ...
+  }
+}
+```
+
+- handler.ts
+```typescript
+import { MyApplication } from './application-builder.ts';
+
+export const hello: APIGatewayProxyHandler = LambRestAPI.handler({
+  application: MyApplication,
+});
+```
