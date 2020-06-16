@@ -1,6 +1,6 @@
 {
   "name": "lamb-rest-api",
-  "version": "1.2.4-beta",
+  "version": "1.2.4-beta2",
   "description": "AWS lambda rest api handler",
   "main": "index.ts",
   "scripts": {

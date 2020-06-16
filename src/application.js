@@ -11,6 +11,7 @@ class Application {
     this.context = context;
     this.callback = callback;
     this.statusCode = 200;
+    this.valid = true;
     this.fs = [];
     this.contextBuilder && this.contextBuilder();
   }
@@ -29,11 +30,14 @@ class Application {
   }
 
   json(data) {
-    const body = JSON.stringify(data, null, 2);
-    return this.callback(null, {
-      statusCode: this.statusCode,
-      body,
-    });
+    if (this.valid) {
+      const body = JSON.stringify(data, null, 2);
+      return this.callback(null, {
+        statusCode: this.statusCode,
+        body,
+      });
+    }
+    throw new Error('Application is not valid now');
   }
 }
 

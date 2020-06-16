@@ -1,7 +1,7 @@
 import { APIGatewayProxyEvent, Context, Callback, APIGatewayProxyResult } from 'aws-lambda';
 import { ResultHandle } from './router';
 
-export declare abstract class Application {
+export declare abstract class Application extends Function {
   constructor(event: APIGatewayProxyEvent, context: Context, callback: Callback<APIGatewayProxyResult>);
   public event: APIGatewayProxyEvent;
   public context: Context;
