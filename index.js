@@ -13,8 +13,11 @@ class LambRestAPI {
           const f = app.fs.shift();
           return await f(app);
         }
-        throw new HttpError('FILE_NOT_FOUND', 404);
+        throw new HttpError('FILE_NOT_FOUND', 400);
       } catch (error) {
+        if (error instanceof HttpError) {
+          return error;
+        }
         return new HttpError('INTERNAL_SERVER_ERROR', 500);
       }
     }
