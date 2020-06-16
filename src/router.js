@@ -19,7 +19,7 @@ class Router {
   }
 
   buildPath(method, resource) {
-    return `${ method }::${ resource }`;
+    return `${ method }::${ process.env.IS_OFFLINE ? '/dev' : '' }${ resource }`;
   }
 
   get(path, ...handers) {
