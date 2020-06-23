@@ -2,7 +2,7 @@ import { Application } from './application';
 import { APIGatewayProxyResult, Callback } from 'aws-lambda';
 
 export type HandleFunction = (app: Application) => ResultHandle | Promise<ResultHandle>;
-export type ResultHandle = APIGatewayProxyResult | Callback<APIGatewayProxyResult>;
+export type ResultHandle = APIGatewayProxyResult | (Callback<APIGatewayProxyResult> | void);
 
 export declare class Router {
   protected path: string;

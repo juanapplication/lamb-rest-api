@@ -1,6 +1,6 @@
 {
   "name": "lamb-rest-api",
-  "version": "1.2.4-beta5",
+  "version": "1.2.4",
   "description": "AWS lambda rest api handler",
   "main": "index.ts",
   "scripts": {
@@ -15,14 +15,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/juanapplication/lamb-rest.git"
+    "url": "git+ssh://git@github.com/juanapplication/lamb-rest-api.git"
   },
   "bugs": {
-    "url": "https://github.com/juanapplication/lamb-rest/issues"
+    "url": "https://github.com/juanapplication/lamb-rest-api/issues"
   },
-  "homepage": "https://github.com/juanapplication/lamb-rest#readme",
+  "homepage": "https://github.com/juanapplication/lamb-rest-api#readme",
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.51",
+    "@types/aws-lambda": "^8.10.56",
     "aws-lambda": "^1.0.6"
   }
 }
